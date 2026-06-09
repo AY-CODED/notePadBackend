@@ -25,8 +25,8 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/notepad-a
     .catch(err => console.error('Could not connect to MongoDB:', err));
 
 // 4. Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/notes', verifyToken, noteRoutes);
+app.use('/auth', authRoutes);
+app.use('/notes', verifyToken, noteRoutes);
 
 app.get('/', (req, res) => {
     res.send('API is running...');
